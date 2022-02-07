@@ -71,6 +71,12 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
+	
+	@Test
+    public void select_menu_items_and_verify_total_order_cost(){
+        int totalPriceExpected = 119+269; //price of sweet corn soup and vegetable lasagne
+        assertEquals(totalPriceExpected,restaurant.getOrderTotal(restaurant.getMenu()));
+    }
 
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
